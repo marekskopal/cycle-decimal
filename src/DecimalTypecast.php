@@ -12,7 +12,7 @@ final class DecimalTypecast implements CastableInterface, UncastableInterface
 {
     public const Type = 'decimal';
 
-    /** @var array<string, string> */
+    /** @var array<string, int> */
     private array $rules = [];
 
     /**
@@ -22,9 +22,12 @@ final class DecimalTypecast implements CastableInterface, UncastableInterface
     public function setRules(array $rules): array
     {
         foreach ($rules as $key => $rule) {
-            if ($rule === self::Type) {
+            if (is_string($rule) && str_starts_with($rule, self::Type)) {
                 unset($rules[$key]);
-                $this->rules[$key] = $rule;
+
+                preg_match('/^' . self::Type . '(\((?<precision>[0-9]+),(?<scale>[0-9]+)\))?$/', $rule, $matches);
+
+                $this->rules[$key] = ($matches['precision'] ?? null) !== null ? (int) $matches['precision'] : Decimal::DEFAULT_PRECISION;
             }
         }
 
@@ -37,12 +40,12 @@ final class DecimalTypecast implements CastableInterface, UncastableInterface
      */
     public function cast(array $data): array
     {
-        foreach ($this->rules as $column => $rule) {
+        foreach ($this->rules as $column => $precision) {
             if (!isset($data[$column])) {
                 continue;
             }
 
-            $data[$column] = new Decimal($data[$column]);
+            $data[$column] = new Decimal($data[$column], $precision);
         }
 
         return $data;
