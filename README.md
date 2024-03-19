@@ -30,6 +30,9 @@ class MyEntity
 {
     #[Column(type: 'decimal(8,2)', typecast: DecimalTypecast::Type)]
     public Decimal $value;
+    
+        #[Column(type: 'decimal(8,2)', typecast: 'decimal(8,2)')]
+    public Decimal $valueWithPrecision;
 }
 ```
 
