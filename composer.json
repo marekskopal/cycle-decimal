@@ -2,6 +2,13 @@
     "name": "marekskopal/cycle-decimal",
     "type": "library",
     "description": "Decimal type from ext-decimal PHP extension support for Cycle ORM",
+    "keywords": [
+        "cycle",
+        "decimal",
+        "orm",
+        "cycle-orm",
+        "ext-decimal"
+    ],
     "license": "MIT",
     "authors": [
         {
