@@ -28,6 +28,13 @@
             "MarekSkopal\\Cycle\\Decimal\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "FinGather\\Tests\\": [
+                "tests/"
+            ]
+        }
+    },
     "config": {
         "allow-plugins": {
             "phpstan/extension-installer": true,
