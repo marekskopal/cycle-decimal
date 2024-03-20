@@ -22,10 +22,9 @@ class ColumnDecimal extends Column
         mixed $default = null,
         bool $castDefault = false,
         bool $readonlySchema = false,
-        ...$attributes,
     ) {
         $type = DecimalTypecast::Type . '(' . $precision . ',' . $scale . ')';
 
-        parent::__construct($type, $name, $property, $primary, $nullable, $default, $type, $castDefault, $readonlySchema, $attributes);
+        parent::__construct($type, $name, $property, $primary, $nullable, $default, $type, $castDefault, $readonlySchema);
     }
 }
