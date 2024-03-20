@@ -6,8 +6,10 @@ namespace MarekSkopal\Cycle\Decimal;
 
 use Attribute;
 use Cycle\Annotated\Annotation\Column;
+use Spiral\Attributes\NamedArgumentConstructor;
 
 #[Attribute(Attribute::TARGET_PROPERTY | Attribute::TARGET_CLASS | Attribute::IS_REPEATABLE)]
+#[NamedArgumentConstructor]
 class ColumnDecimal extends Column
 {
     public function __construct(
