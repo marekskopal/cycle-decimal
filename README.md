@@ -35,7 +35,7 @@ class MyEntity
     #[Column(type: 'decimal(8,2)', typecast: 'decimal(8,2)')]
     public Decimal $valueWithPrecision;
     
-    #[ColumnDecimal(8,2)]
+    #[ColumnDecimal(precision: 8, scale: 2)]
     public Decimal $valueWithAttribute;
 }
 ```
