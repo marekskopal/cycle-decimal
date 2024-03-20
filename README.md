@@ -18,6 +18,7 @@ use Cycle\Annotated\Annotation\Column;
 use Cycle\Annotated\Annotation\Entity;
 use Cycle\ORM\Parser\Typecast;
 use Decimal\Decimal;
+use MarekSkopal\Cycle\Decimal\ColumnDecimal;
 use MarekSkopal\Cycle\Decimal\DecimalTypecast;
 
 #[Entity(
@@ -31,8 +32,11 @@ class MyEntity
     #[Column(type: 'decimal(8,2)', typecast: DecimalTypecast::Type)]
     public Decimal $value;
     
-        #[Column(type: 'decimal(8,2)', typecast: 'decimal(8,2)')]
+    #[Column(type: 'decimal(8,2)', typecast: 'decimal(8,2)')]
     public Decimal $valueWithPrecision;
+    
+    #[ColumnDecimal(8,2)]
+    public Decimal $valueWithAttribute;
 }
 ```
 
