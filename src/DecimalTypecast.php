@@ -36,7 +36,7 @@ final class DecimalTypecast implements CastableInterface, UncastableInterface
 
     /**
      * @param array<mixed> $data
-     * @return array<string, mixed>
+     * @return array<mixed>
      */
     public function cast(array $data): array
     {
@@ -45,6 +45,7 @@ final class DecimalTypecast implements CastableInterface, UncastableInterface
                 continue;
             }
 
+            //@phpstan-ignore-next-line argument.type
             $data[$column] = new Decimal($data[$column], $precision);
         }
 
@@ -53,7 +54,7 @@ final class DecimalTypecast implements CastableInterface, UncastableInterface
 
     /**
      * @param array<mixed> $data
-     * @return array<string, mixed>
+     * @return array<mixed>
      */
     public function uncast(array $data): array
     {

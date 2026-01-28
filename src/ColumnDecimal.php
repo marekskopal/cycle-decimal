@@ -9,6 +9,7 @@ use Cycle\Annotated\Annotation\Column;
 use Spiral\Attributes\NamedArgumentConstructor;
 
 #[Attribute(Attribute::TARGET_PROPERTY | Attribute::TARGET_CLASS | Attribute::IS_REPEATABLE)]
+//@phpstan-ignore-next-line attribute.deprecated attribute.deprecatedClass
 #[NamedArgumentConstructor]
 class ColumnDecimal extends Column
 {
